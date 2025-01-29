@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sendmoney_interview/ui/dashboard/dashboard_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -75,74 +76,80 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Login'), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Image.asset(
-                height: 200,
-                'assets/digital_wallet.png',
-              ),
-              const SizedBox(height: 50),
-              TextFormField(
-                controller: _usernameController,
-                decoration: InputDecoration(
-                  labelText: 'Username',
-                  border: const OutlineInputBorder(),
-                  prefixIcon: const Icon(Icons.account_circle),
-                  errorText: _usernameError,
+    return PopScope(
+      onPopInvoked: (didPop) {
+        Navigator.pop(context);
+        SystemNavigator.pop();
+      },
+      child: Scaffold(
+        appBar: AppBar(title: const Text('Login'), centerTitle: true),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(
+                  height: 200,
+                  'assets/digital_wallet.png',
                 ),
-                keyboardType: TextInputType.text,
-                onChanged: (value) {
-                  if (_usernameError != null && value.isNotEmpty) {
-                    setState(() {
-                      _usernameError = null;
-                    });
-                  }
-                },
-              ),
-              const SizedBox(height: 16),
-              TextFormField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  border: const OutlineInputBorder(),
-                  prefixIcon: const Icon(Icons.lock),
-                  errorText: _passwordError,
+                const SizedBox(height: 50),
+                TextFormField(
+                  controller: _usernameController,
+                  decoration: InputDecoration(
+                    labelText: 'Username',
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.account_circle),
+                    errorText: _usernameError,
+                  ),
+                  keyboardType: TextInputType.text,
+                  onChanged: (value) {
+                    if (_usernameError != null && value.isNotEmpty) {
+                      setState(() {
+                        _usernameError = null;
+                      });
+                    }
+                  },
                 ),
-                keyboardType: TextInputType.text,
-                onChanged: (value) {
-                  if (_passwordError != null && value.isNotEmpty) {
-                    setState(() {
-                      _passwordError = null;
-                    });
-                  }
-                },
-              ),
-              const SizedBox(height: 24),
-              _isLoading
-                  ? const CircularProgressIndicator()
-                  : ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                const SizedBox(height: 16),
+                TextFormField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.lock),
+                    errorText: _passwordError,
+                  ),
+                  keyboardType: TextInputType.text,
+                  onChanged: (value) {
+                    if (_passwordError != null && value.isNotEmpty) {
+                      setState(() {
+                        _passwordError = null;
+                      });
+                    }
+                  },
+                ),
+                const SizedBox(height: 24),
+                _isLoading
+                    ? const CircularProgressIndicator()
+                    : ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size.fromHeight(50),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          backgroundColor: Colors.blue,
                         ),
-                        backgroundColor: Colors.blue,
+                        onPressed: _isLoading ? null : _handleLogin,
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
-                      onPressed: _isLoading ? null : _handleLogin,
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

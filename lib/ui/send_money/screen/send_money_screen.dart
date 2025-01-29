@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sendmoney_interview/send_money/bloc/send_money_bloc.dart';
+
+import '../../../utils/bottom_sheet_dialog.dart';
+import '../../../utils/common_app_bar.dart';
+import '../bloc/send_money_bloc.dart';
 
 class SendMoney extends StatelessWidget {
   const SendMoney({super.key});
@@ -60,7 +63,8 @@ class _SendMoneyScreenState extends State<SendMoneyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Send Money')),
+      appBar: const CommonAppBar(title: 'Send Money',),
+
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

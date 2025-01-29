@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:sendmoney_interview/transaction_history/bloc/transaction_bloc.dart';
-import 'package:sendmoney_interview/transaction_history/bloc/transaction_state.dart';
-
+import 'package:sendmoney_interview/utils/common_app_bar.dart';
+import '../bloc/transaction_bloc.dart';
 import '../bloc/transaction_events.dart';
+import '../bloc/transaction_state.dart';
 
 class TransactionScreen extends StatelessWidget {
   const TransactionScreen({super.key});
@@ -24,7 +24,7 @@ class RetrieveTransactionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Transaction List')),
+      appBar: const CommonAppBar(title: 'Transactions'),
       body: BlocBuilder<RetrieveTransactionsBloc, RetrieveTransactionsState>(
         builder: (context, state) {
           if (state.status == Status.loading) {

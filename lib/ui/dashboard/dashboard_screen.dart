@@ -1,32 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:sendmoney_interview/send_money/screen/send_money_screen.dart';
-import 'package:sendmoney_interview/transaction_history/screen/transaction_screen.dart';
+import 'package:sendmoney_interview/utils/common_app_bar.dart';
 
+import '../../utils/bottom_sheet_dialog.dart';
+import '../send_money/screen/send_money_screen.dart';
+import '../transaction_history/screen/transaction_screen.dart';
 import 'dashboard_balance.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Wallet',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
-        backgroundColor: Colors.blueAccent,
-        centerTitle: true,
-        leading: const Icon(Icons.menu_rounded, color: Colors.white),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.search,
-              color: Colors.white,
-              size: 30,
-            ),
-          ),
-        ],
-      ),
+
+      appBar: const CommonAppBar(title: 'Wallet',showBackButton: false,),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:sendmoney_interview/transaction_history/bloc/transaction_events.dart';
-import 'package:sendmoney_interview/transaction_history/bloc/transaction_state.dart';
+import 'package:sendmoney_interview/ui/transaction_history/bloc/transaction_events.dart';
+import 'package:sendmoney_interview/ui/transaction_history/bloc/transaction_state.dart';
 
-import '../../local_storage/local_storage.dart';
+import '../../../local_storage/local_storage.dart';
 
 class RetrieveTransactionsBloc
     extends Bloc<RetrieveTransactionsEvent, RetrieveTransactionsState> {

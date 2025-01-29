@@ -3,7 +3,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'dashboard.dart';
+import 'dashboard/dashboard_screen.dart';
 import 'firebase_options.dart';
 import 'local_storage/local_storage.dart';
 

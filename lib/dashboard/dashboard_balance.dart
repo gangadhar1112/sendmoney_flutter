@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../send_money/screen/send_money_screen.dart';
+
 class DashboardBalanceCard extends StatefulWidget {
   final String? balance;
   final Function? onTap, navigate;
@@ -83,8 +85,8 @@ class _DashboardBalanceCardState extends State<DashboardBalanceCard> {
                             ? widget.balance != null &&
                                     widget.balance!.isNotEmpty
                                 ? widget.balance.toString()
-                                : 'Rs ******'
-                            : 'Rs ******',
+                                : '\$ ******'
+                            : '\$ ******',
                         style: const TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -125,7 +127,12 @@ class _DashboardBalanceCardState extends State<DashboardBalanceCard> {
                           color: Colors.deepOrangeAccent,
                         ),
                         onPressed: () {
-                          widget.navigate!();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SendMoney(),
+                            ),
+                          );
                         },
                         label: const Text(
                           'Send Money',

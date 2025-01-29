@@ -23,7 +23,7 @@ class SendMoneyScreen extends StatefulWidget {
 
 class _SendMoneyScreenState extends State<SendMoneyScreen> {
   final TextEditingController amountController = TextEditingController();
-  final TextEditingController userName=TextEditingController();
+  final TextEditingController userName = TextEditingController();
 
   // Function to send money to Firestore
   void sendMoney() {
@@ -32,21 +32,29 @@ class _SendMoneyScreenState extends State<SendMoneyScreen> {
     double amount = double.tryParse(amountController.text) ?? 0.0;
 
     if (amount <= 0) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Please enter a valid amount')));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Please enter a valid amount'),
+        backgroundColor: Colors.red,
+      ));
       return;
     }
     if (userName.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Please enter phone number')));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Please enter phone number'),
+        backgroundColor: Colors.red,
+      ));
       return;
     }
     if (userName.text.length != 10) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Please enter a valid phone number')));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Please enter a valid phone number'),
+        backgroundColor: Colors.red,
+      ));
       return;
     }
-    context.read<SendMoneyBloc>().add(SendMoneySubmitted(amount: amount,userName: userName.text));
+    context
+        .read<SendMoneyBloc>()
+        .add(SendMoneySubmitted(amount: amount, userName: userName.text));
   }
 
   @override
@@ -59,10 +67,12 @@ class _SendMoneyScreenState extends State<SendMoneyScreen> {
           children: [
             TextField(
               controller: amountController,
+              maxLength: 8,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
                 labelText: 'Enter Amount',
                 border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.attach_money),
               ),
             ),
             const SizedBox(height: 20),
@@ -73,15 +83,17 @@ class _SendMoneyScreenState extends State<SendMoneyScreen> {
               decoration: const InputDecoration(
                 labelText: 'Enter Phone Number',
                 border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.phone),
               ),
             ),
             const SizedBox(height: 20),
             BlocListener<SendMoneyBloc, SendMoneyState>(
               listener: (context, state) {
                 if (state is SendMoneyFailure) {
-                  // Show an error message on failure
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Error: ${state.error}')));
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text('Error: ${state.error}'),
+                    backgroundColor: Colors.red,
+                  ));
                 }
 
                 if (state is SendMoneySuccess) {
@@ -130,12 +142,21 @@ class _SendMoneyScreenState extends State<SendMoneyScreen> {
               child: BlocBuilder<SendMoneyBloc, SendMoneyState>(
                 builder: (context, state) {
                   if (state.status == Status.loading) {
-                    // Show loading indicator when the status is 'loading'
                     return const Center(child: CircularProgressIndicator());
                   } else {
                     return ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        backgroundColor: Colors.blue,
+                      ),
                       onPressed: sendMoney,
-                      child: const Text('Send Money'),
+                      child: const Text(
+                        'Send Money',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     );
                   }
                 },

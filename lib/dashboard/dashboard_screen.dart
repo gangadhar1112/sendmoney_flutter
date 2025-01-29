@@ -11,7 +11,8 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wallet', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
+        title: const Text('Wallet',
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500)),
         backgroundColor: Colors.blueAccent,
         centerTitle: true,
         leading: const Icon(Icons.menu_rounded, color: Colors.white),
@@ -33,16 +34,8 @@ class DashboardScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            DashboardBalanceCard(
-              balance: 'Rs.89000.00',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SendMoney(),
-                  ),
-                );
-              },
+            const DashboardBalanceCard(
+              balance: '\$ 5000.00',
             ),
             // Quick Menu Card
             Card(

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1073460920784",
+    "project_id": "interviewsendmoney",
+    "storage_bucket": "interviewsendmoney.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073460920784:android:349c0807cf931d5dc179d5",
+        "android_client_info": {
+          "package_name": "com.example.sendmoney_interview"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDadmjNX8TYgR8QD4NkF7vgpCjsmJ1zEIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

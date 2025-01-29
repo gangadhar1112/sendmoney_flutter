@@ -1,16 +1,58 @@
-# sendmoney_interview
+# SendMoney Flutter Application
 
-A new Flutter project.
+# Introduction
 
-## Getting Started
+- SendMoney is a Flutter-based application that enables users to send money securely and view their
+  transaction history. It is built using Flutter with the Bloc state management pattern.
 
-This project is a starting point for a Flutter application.
+# Features
 
-A few resources to get you started if this is your first Flutter project:
+- Send money to users using their phone number.
+- View transaction history with detailed information.
+- Display wallet balance on the dashboard.
+- Error handling and validation for input fields.
+- Interactive UI with Material Design components.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Tech Stack
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter (Dart)
+- Flutter Bloc (State Management)
+- Firebase Firestore (Database)
+- Intl (Date Formatting)
+
+# Installation
+
+1. Clone the repository:
+    - git clone https://github.com/gangadhar1112/sendmoney_flutter.git
+2. Install dependencies:
+    - cd sendmoney_flutter
+
+3. Install dependencies:
+    - flutter pub get
+
+4. Run the app:
+    - flutter run
+
+# Project Structure
+
+lib/
+|-- send_money/
+| |-- bloc/
+| | |-- send_money_bloc.dart
+| | |-- send_money_event.dart
+| | |-- send_money_state.dart
+| |-- screen/
+| | |-- send_money_screen.dart
+|
+|-- transaction_history/
+| |-- bloc/
+| | |-- transaction_bloc.dart
+| | |-- transaction_events.dart
+| | |-- transaction_state.dart
+| |-- screen/
+| | |-- transaction_screen.dart
+|
+|-- dashboard/
+| |-- dashboard_screen.dart
+| |-- dashboard_balance.dart
+

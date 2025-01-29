@@ -25,7 +25,7 @@ class DashboardScreen extends StatelessWidget {
               height: 10,
             ),
             const DashboardBalanceCard(
-              balance: '\$ 5000.00',
+              balance: 'PHP 5000.00',
             ),
             // Quick Menu Card
             Card(

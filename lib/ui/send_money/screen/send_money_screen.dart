@@ -73,11 +73,18 @@ class _SendMoneyScreenState extends State<SendMoneyScreen> {
               controller: amountController,
               maxLength: 8,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 labelText: 'Enter Amount',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.attach_money),
-              ),
+                border: const OutlineInputBorder(),
+                prefixIcon: Container(
+                  width: 60, // Adjust the width as needed
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'PHP',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),              ),
             ),
             const SizedBox(height: 20),
             TextField(

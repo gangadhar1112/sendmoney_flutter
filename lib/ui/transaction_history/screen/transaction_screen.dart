@@ -52,7 +52,7 @@ class RetrieveTransactionsScreen extends StatelessWidget {
                     elevation: 5,
                     child: ListTile(
                       contentPadding: const EdgeInsets.all(16.0),
-                      title: Text('Amount: \$${amount.toString()}'),
+                      title: Text('Amount: \$PHP ${amount.toString()}'),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

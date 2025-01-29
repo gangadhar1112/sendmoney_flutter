@@ -85,8 +85,8 @@ class _DashboardBalanceCardState extends State<DashboardBalanceCard> {
                             ? widget.balance != null &&
                                     widget.balance!.isNotEmpty
                                 ? widget.balance.toString()
-                                : '\$ ******'
-                            : '\$ ******',
+                                : 'PHP ******'
+                            : 'PHP ******',
                         style: const TextStyle(
                           fontSize: 16,
                           color: Colors.white,

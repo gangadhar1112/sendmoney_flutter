@@ -37,7 +37,7 @@ class DashboardScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const RetrieveTransactionsScreen(),
+                    builder: (context) => const TransactionScreen(),
                   ),
                 );
               },

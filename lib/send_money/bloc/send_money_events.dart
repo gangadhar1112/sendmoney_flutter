@@ -8,8 +8,9 @@ abstract class SendMoneyEvent extends Equatable {
 
 class SendMoneySubmitted extends SendMoneyEvent {
   final double amount;
+  final String userName;
 
-  SendMoneySubmitted({required this.amount});
+  SendMoneySubmitted({required this.amount,required this.userName});
 
   @override
   List<Object?> get props => [amount];

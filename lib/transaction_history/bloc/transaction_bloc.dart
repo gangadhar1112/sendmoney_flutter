@@ -10,6 +10,7 @@ class RetrieveTransactionsBloc
     extends Bloc<RetrieveTransactionsEvent, RetrieveTransactionsState> {
   RetrieveTransactionsBloc() : super(RetrieveTransactionsInitial()) {
     on<RetrieveTransactionsRequested>(_onRetrieveTransactionsRequested);
+    add(RetrieveTransactionsRequested());
   }
 
   // Event handler for RetrieveTransactionsRequested
@@ -48,10 +49,10 @@ class RetrieveTransactionsBloc
         return {
           'amount': doc['amount'],
           'time': doc['time'].toDate().toIso8601String(),
+          'user_name': doc['user_name']
         };
       }).toList();
     } catch (e) {
-      // If Firestore fetch fails, load transactions from local storage
       return await LocalStorage.loadLocalTransactions();
     }
   }
